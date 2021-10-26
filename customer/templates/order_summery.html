@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class=container>
+        <div style="height:45px; width:100%; color:white;background-color:royalblue;margin-top:70px">
+            <h3 style="font-size:24px; padding-top:8px; padding-left:20px" >ORDER SUMMERY</h3>
+        </div>
+        <div class="row ">
+            <div class="col-9">
+                {% for d in data %}
+        <div class="row ">
+            <div class="col-3 ml-2 mt-2 mb-2 ">
+                    <img src={{d.image}} style="height:120px;width:120px;">
+            </div>
+            <div class="col-3 ml-1 mt-2 mb-1">
+                <h5 class="">{{d.name}}</h5>
+                <h7 style="color:grey; ">{{d.color}}</h7>
+                <h6 style="color:grey;">Seller  : {{d.seller}}</h6>
+                <h6>Qty: {{d.quantity}}</h6>
+                <h5>&#8377; {{d.price}}  <span style="color:green; font-size:15px"> {{d.offer}} % Off</span></h5>
+
+            </div>
+            <div class="col-3 ml-1 mt-2 mb-2">
+                    Delivery by
+            </div>
+        </div>
+        <div style="height:50px;"  ></div>
+        {% endfor %}
+            </div>
+            <div class="col-3" >
+                <h5>Deliverde to:</h5>
+                <p>{{address}}</p>
+                <p><b>Total for ({{qty}} Items)  :</b><br> &#8377; {{sum}}</p>
+            </div>
+        </div>
+
+        <div class="mb-5">
+        <a href="{% url 'index' %}"><button class="btn " style="color:white; font-weight:bold; background-color:#EBB403">Proceed to Checkout</button></a>
+        </div>
+    </div>
+
+</body>
+</html>

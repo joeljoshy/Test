@@ -1,0 +1,17 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form action="" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{user_form.as_p}}
+                {{profile_form.as_p}}
+                <input type="submit" value="Update Profile" href="{% url 'view_profile'%}">
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{%endblock%}

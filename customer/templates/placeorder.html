@@ -1,0 +1,41 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <form action="" method="post"><br><br>
+        {%csrf_token%}
+
+             {% if address %}
+             <h4>Choose delivery Address</h4>
+           {% for ad in address %}
+            <div class="form-check">
+              <label class="form-check-label" for="radio1">
+                <input type="radio" class="form-check-input" id="radio1" name="radioaddress" value={{ad}} checked>{{ad}}
+              </label>
+            </div>
+           {% endfor %}
+             {% else%}
+                    <a href="{%url 'add_address'%}"><button type="button" class="btn btn-sm btn-primary">Add delivery address</button></a>
+             {% endif %}
+          <br><br>
+             <div class="card" style="width:400px">
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.product_name}}</h4>
+                    <p class="card-text">{{product.description}}</p>
+
+                </div>
+            </div>
+        <br><br>
+                                <a href="{%url 'add_address'%}"><button type="button" class="btn btn-sm btn-primary">Add delivery address</button></a>
+
+        <button type="submit" class="btn btn-success">Place Order</button>
+         </form>
+         </div>>
+     <div class="col-4"></div>
+  </div>
+  </div>
+{% endblock%}

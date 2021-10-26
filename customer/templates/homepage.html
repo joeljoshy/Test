@@ -1,0 +1,55 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mt-5">
+        {%for product in products %}
+        <div class="col-4 mt-5">
+            <div class="card auto mb-1" style="width: 17rem; height:auto; text-align:center;">
+                <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{product.product_name}}</h4>
+                    <p><br>
+                        Price : {{product.price}}<br>
+                    Offer : {{product.offer}} % OFF</p>
+                    <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6  ">
+
+            {% if is_paginated %}
+            <ul class="pagination text-center">
+                <li>
+                    <span><i>Pages </i></span>
+                </li>
+                {% if page_obj.has_previous %}
+                <li>
+                    <span><a
+                            href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></span>
+                </li>
+                {% endif %}
+                <li class="">
+                    <!--                    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>-->
+                    <span>{{ page_obj.number }} </span>
+                </li>
+                {% if page_obj.has_next %}
+                <li>
+                    <span><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></span>
+                </li>
+                {% endif %}
+            </ul>
+            {% else %}
+
+            {% endif %}
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{%endblock%}}

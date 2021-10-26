@@ -1,0 +1,89 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{product.product_name}}</b> ( {{product.color}} ) </h5>
+                    <p class="card-text"><i> <b>Rate : </b>{{product.price}}</i><br>
+                        <b>Brand : </b>{{product.brand}}<br>
+                        <b>RAM : </b>{{product.ram}}<br>
+                        <b>Storage : </b>{{product.storage}}<br>
+                        <b>Features : </b>{{product.description}}
+                    </p>
+
+                    <a href="{%url 'addtocart' product.id %}" class="btn btn-primary">Add to Cart</a>
+                    <a href="{%url 'write_review' product.id%}" class="btn btn-success " style="margin-left:150px;">Write
+                        Review</a>
+
+                    <!--                     Modal-->
+                    <!--                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+                    <!--                         aria-hidden="true">-->
+                    <!--                        <div class="modal-dialog">-->
+                    <!--                            <div class="modal-content">-->
+                    <!--                                <div class="modal-header">-->
+                    <!--                                    <h5 class="modal-title" id="exampleModalLabel"><h3>Write Review</h3></h5>-->
+                    <!--                                    <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+                    <!--                                            aria-label="Close"></button>-->
+                    <!--                                    <div class="modal-body">-->
+                    <!--                                        <form action="" method="POST">-->
+                    <!--                                            {%csrf_token%}-->
+                    <!--                                            {{form.as_p}}-->
+                    <!--                                            <input type="submit" value="Post">-->
+                    <!--                                        </form>-->
+
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h5 style="text-align:center; ">REVIEWS</h5>
+            {%for review in reviews %}
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6>{{review.user.first_name}}</h6>
+                    <hr>
+                    <b><p style="text-align:center;">{{review.review}}</p></b>
+                    <span class="text-muted" style="font-size:10px;">{{review.date}}</span>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+
+    <!--  similar products  -->
+
+    <div class="row">
+        <h5>Similar Picks</h5>
+
+        {% for similar_product in similar_products %}
+        {% if similar_product != product %}
+        <div class="col-3 mt-5">
+            <div class="card auto mb-1" style="width: 17rem; height:30rem; text-align:center;">
+                <img src="{{similar_product.image.url}}" class="card-img-top" alt="..."
+                     style=" height:300px; padding:20px;">
+                <div class="card-body">
+                    <h4 class="card-title">{{similar_product.product_name}}</h4>
+                    <p>Description : {{similar_product.description}}<br>
+                        Price : {{similar_product.price}}<br>
+                        Offer : {{similar_product.offer}}</p>
+                    <a href="{%url 'viewproduct' similar_product.id%}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!--  /similar producst  -->
+</div>
+
+
+{%endblock%}

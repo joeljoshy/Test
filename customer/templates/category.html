@@ -1,0 +1,120 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mt-5">
+        {%for product in mobiles %}
+        <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+            <img src="{{product.image.url}}" class="card-img-top" alt="..." style="padding:10px; height:150px'">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in laptops %}
+        <div class="card auto  m-1 " style="width: 17rem; height:25rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+            <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:400px; padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in tablets %}
+        <div class="card auto mb-1" style="width: 17rem; height:28rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+            <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in apple %}
+        <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in lenovo %}
+        <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.product_name}}</h4>
+                    <p>Price : {{product.price}}<br>
+                        Offer : {{product.offer}}</p>
+                    <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+            {%endfor%}
+            {%for product in oppo %}
+            <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+                <div class="card-body">
+                    <h4 class="card-title">{{product.product_name}}</h4>
+                    <p>Price : {{product.price}}<br>
+                        Offer : {{product.offer}}</p>
+                    <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+            {%endfor%}
+            {%for product in oneplus %}
+            <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in redmi %}
+        <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+        {%for product in samsung %}
+        <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center; margin:10px;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:300px; padding:20px;">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{product.product_name}}</h4>
+                <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}}

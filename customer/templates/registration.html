@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top:100px;">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <div class="card" style="background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+">
+                <div class="card-body">
+                    <h6>Register Here</h6>
+                    <hr>
+                    <form action="" method="POST">
+                        {%csrf_token%}
+                        {{form.as_p}}
+                        <button class="btn btn-primary " type="submit">Register</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-5"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+
+{% for product in products %}
+<div class="card" style="width: 18rem;">
+    <img src="{{product.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{product.product_name}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">View</a>
+    </div>
+</div>
+{% endfor %}
+
+
+{%endblock%}

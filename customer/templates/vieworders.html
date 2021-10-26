@@ -1,0 +1,30 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        {% for order in orders %}
+
+        <div class="card mb-3" style="max-width: 600px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="height:200px" src="{{order.product.image.url}}" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{order.product.mobile_name}}</h5>
+        <p class="card-text">{{order.product.price}}</p>
+        <p class="card-text">{{order.status}}</p>
+          <a href="{%url 'removeorder' order.id %}" class="btn btn-danger">Cancel Order</a>
+         <a href="" class="btn btn-primary">Track Package</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+{%endblock%}

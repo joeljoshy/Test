@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4 ">
+                <h3 class="text-center ">My Addresses</h3>
+                {%for address in addresses%}
+                    <div class="card-body mt-5">
+                        <p class="card-text">Name : {{address.name}}</p>
+                        <p class="card-text">Phone : {{address.phone}}</p>
+                        <p class="card-text">Address Line1 : {{address.address_line}}</p>
+                        <p class="card-text">Address Line2 : {{address.address_line2}}</p>
+                        <p class="card-text">PIN : {{address.pin_code}}</p>
+                        <p class="card-text">Town/City/State : {{address.town_city}}</p>
+                        <div class="text-center ">
+                            <a href="{%url 'edit_address' address.id%}"><button class="btn btn-sm btn-warning">Edit</button></a>
+                            <a href="{%url 'delete_address' address.id%}"><button class="btn btn-sm btn-danger">Delete</button></a>
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+            <div class="col-4">
+                 <div>
+                    <a href="{%url 'add_address'%}"><button class="btn btn-primary ">Add Address</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

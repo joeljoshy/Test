@@ -1,0 +1,21 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-check" style="color:green"> Payment Complete </i></h5>
+                    <p class="card-text">Your payment is successful.</p>
+                    <a href="{%url 'customer_home'%}" class="btn btn-primary">Back to home</a>
+                    <a href="{%url 'vieworders'%}" class="btn btn-warning">Order History</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

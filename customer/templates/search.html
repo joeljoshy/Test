@@ -1,0 +1,27 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mt-5">
+        {% if product %}
+        <h5><span class="text-muted">Search results for </span>" {{request.GET.q}} "</h5>
+        {%for product in product %}
+        <div class="col-4 mt-5">
+            <div class="card auto mb-1" style="width: 17rem; height:22rem; text-align:center;">
+                <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.image.url}}" class="card-img-top" alt="..." style=" height:400px; padding:20px;">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{product.product_name}}</h4>
+                    <p>Price : {{product.price}}<br>
+                    Offer : {{product.offer}}</p>
+                    <a href="{%url 'viewproduct' product.id%}" class="btn btn-primary">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        {% else %}
+        <h5><span class=text-muted">No results found ...</span></h5>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}}

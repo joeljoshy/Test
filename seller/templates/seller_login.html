@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4 ">
+                <h3 class="text-center">Seller Login</h3>
+                <form action="" method="post" class="form-control">
+                    {%csrf_token%}
+                    <table class="mx-auto mt-3">
+                        {{form.as_table}}
+                    </table>
+
+                    <div style="text-align:center; padding:1px;">
+                        <input type="submit" value="Login" class="btn btn-success mt-3" >
+                    </div>
+                     <div class="container text-center mt-3">
+                    <p>New User?<a href="{%url 'seller_registration'%}">Register</a></p>
+                </div>
+                </form>
+
+            </div>
+            <div class="col-4 text-end">
+                <a href="{%url 'customer_home'%}" class="btn btn-primary mt-4">Buy items?</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+        <div class="container ">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    {%if messages%}
+                        {%for message in messages%}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div style="background-color:#48fc00; color:white;" >
+                                    {{message}}
+                                </div>
+                            {%endif%}
+                        {%endfor%}
+                    {%endif%}
+                </div>
+                <div class="col-4"></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <h3 class="text-center">Add Product</h3>
+                     <form action="" method="post" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            {{form.as_p}}
+                            {{image_form.as_p}}
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Update</button>
+                            </div>
+                     </form>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+
+</body>
+</html>

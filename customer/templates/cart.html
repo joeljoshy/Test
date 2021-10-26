@@ -1,0 +1,53 @@
+{% extends 'cust_base.html'%}
+{%block body_block%}
+<div class="container">
+    <h4>CART ITEMS..</h4>
+    {% if cart_products %}
+    <div class="row">
+        <div class="col-9">
+                    {% for cart in cart_products %}
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{cart.product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{cart.product.product_name}}</h5>
+                    <p class="card-text"><i> <b>Rate : </b>{{cart.product.price}}</i><br>
+                        {{cart.product.brand}}<br>
+                        {{cart.product.description}} <br>
+                        Quantity: <a href="{%url 'minus' cart.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+</svg></a>  {{cart.quantity}} <a href="{%url 'plus' cart.id %}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+</svg></a>
+                    </p>
+<!--                    <a href="{% url 'placeorder' cart.product.id cart.id%}" class="btn btn-primary">Buy Now</a>-->
+                    <a class="btn btn-danger" href="{%url 'deletecart' cart.id %}">Remove</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4>Price Details</h4></li>
+                {% for cart in cart_products %}
+                <li class="list-group-item">{{cart.product}} x{{cart.quantity}}</li>
+                {% endfor %}
+                <li class="list-group-item">Total Price:Rs. {{total}}</li>
+
+            </ul>
+        </div>
+        </div>
+
+    </div>
+    <a href="{%url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+    {% else %}
+    <h6>No items in Cart</h6>
+    {% endif %}
+</div>
+
+
+{%endblock%}
